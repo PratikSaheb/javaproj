@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace=“fragments/template.html :: header”></head>
+<body>
+<div class=“container” th:replace/template.html :: sidebar">
+</div>
+<fieldset th:if="${#fields.hasErrors('${entity.*}')}" class="text-warning">
+    <legend>Some errors appeared !</legend>
+    <ul>
+        <li th:each="err : ${#fields.errors('entity.*')}" th:text="${err}"></li>
+    </ul>
+</fieldset>
+
+ <form action="#" th:action="@{/role/edit/{id}(id=${entity.id})}" th:object="${entity}" method="PUT">
+      <div th:class="${#fields.hasErrors('Id')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Id">Id<span class="required">*</span></label>
+          <input type="text" th:field="*{Id}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Name')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Name">Name<span class="required">*</span></label>
+          <input type="text" th:field="*{Name}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Level')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Level">Level<span class="required">*</span></label>
+          <input type="text" th:field="*{Level}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('PaidLeaves')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="PaidLeaves">PaidLeaves<span class="required">*</span></label>
+          <input type="text" th:field="*{PaidLeaves}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+ <div class="submit">
+          <button type="submit" name="save" th:text="#{entity.submit}">Edit</button>
+        </div>
+</form>
+<div>
+   <footer th:replace=“fragments/template.html :: footer”></footer>
+</div>
+</body>
+
+</html>

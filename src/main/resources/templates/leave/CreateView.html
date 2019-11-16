@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace=“fragments/template.html :: header”></head>
+<body>
+<div class=“container” th:replace/template.html :: sidebar">
+</div>
+<fieldset th:if="${#fields.hasErrors('${entity.*}')}" class="text-warning">
+    <legend>Some errors appeared !</legend>
+    <ul>
+        <li th:each="err : ${#fields.errors('entity.*')}" th:text="${err}"></li>
+    </ul>
+</fieldset>
+
+ <form action="#" th:action="@{/leave/save(id=${entity.id})}" th:object="${entity}" method="POST">
+      <div th:class="${#fields.hasErrors('Id')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Id">Id<span class="required">*</span></label>
+          <input type="text" th:field="*{Id}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('StartDate')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="StartDate">StartDate<span class="required">*</span></label>
+          <input type="text" th:field="*{StartDate}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('EndDate')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="EndDate">EndDate<span class="required">*</span></label>
+          <input type="text" th:field="*{EndDate}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('TotalDays')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="TotalDays">TotalDays<span class="required">*</span></label>
+          <input type="text" th:field="*{TotalDays}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('ReasonForLeave')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="ReasonForLeave">ReasonForLeave<span class="required">*</span></label>
+          <input type="text" th:field="*{ReasonForLeave}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('UserId')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="UserId">UserId<span class="required">*</span></label>
+          <input type="text" th:field="*{UserId}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('ManagerId')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="ManagerId">ManagerId<span class="required">*</span></label>
+          <input type="text" th:field="*{ManagerId}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('LeaveType')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="LeaveType">LeaveType<span class="required">*</span></label>
+          <input type="text" th:field="*{LeaveType}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Status')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Status">Status<span class="required">*</span></label>
+          <input type="text" th:field="*{Status}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+ <div class="submit">
+          <button type="submit" name="save" th:text="#{entity.submit}">Create</button>
+        </div>
+</form>
+<div>
+   <footer th:replace=“fragments/template.html :: footer”></footer>
+</div>
+</body>
+
+</html>

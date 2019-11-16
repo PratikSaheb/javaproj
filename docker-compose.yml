@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  mysql-docker-container:
+    image: mysql:latest
+    container_name: java-springboot-mysql-container
+
+    environment:
+      - MYSQL_DATABASE=leave_management
+      - MYSQL_USER=root
+      - MYSQL_DATASOURCE=jdbc:mysql://localhost:3306/
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - /var/lib/mysql
+
+  app:
+    image: spring-boot
+    container_name: java-springboot-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-docker-container
+    ports:
+      - 8080:80
+    volumes:
+      - /data/spring-boot-app

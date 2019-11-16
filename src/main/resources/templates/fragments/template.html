@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+    <head th:fragment="header">
+        <title th:text="${title}"></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link th:href="@{/css/core.css}" rel="stylesheet" media="screen" />
+    </head>
+
+    <footer th:fragment="footer">
+        @Copyright 2019
+    </footer>
+
+    <div class="col-2" th:fragment="sidebar">    
+        <h1>Sidebar</h1>
+        <a href="#">Login</a>
+    </div>
+</html>

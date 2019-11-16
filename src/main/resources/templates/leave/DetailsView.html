@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th=“http://www.thymeleaf.org“>
+<head th:replace=“fragments/template.html :: header”></head>
+<body>
+<div class=“container” th:replace/template.html :: sidebar">
+</div>
+
+            <div th:text="${entity.Id}"><div>
+
+            <div th:text="${entity.StartDate}"><div>
+
+            <div th:text="${entity.EndDate}"><div>
+
+            <div th:text="${entity.TotalDays}"><div>
+
+            <div th:text="${entity.ReasonForLeave}"><div>
+
+            <div th:text="${entity.UserId}"><div>
+
+            <div th:text="${entity.ManagerId}"><div>
+
+            <div th:text="${entity.LeaveType}"><div>
+
+            <div th:text="${entity.Status}"><div>
+
+<div>
+   <footer th:replace=“fragments/template.html :: footer”></footer>
+</div>
+</body>
+
+</html>

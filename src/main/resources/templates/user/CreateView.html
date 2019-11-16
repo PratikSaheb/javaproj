@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace=“fragments/template.html :: header”></head>
+<body>
+<div class=“container” th:replace/template.html :: sidebar">
+</div>
+<fieldset th:if="${#fields.hasErrors('${entity.*}')}" class="text-warning">
+    <legend>Some errors appeared !</legend>
+    <ul>
+        <li th:each="err : ${#fields.errors('entity.*')}" th:text="${err}"></li>
+    </ul>
+</fieldset>
+
+ <form action="#" th:action="@{/user/save(id=${entity.id})}" th:object="${entity}" method="POST">
+      <div th:class="${#fields.hasErrors('Id')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Id">Id<span class="required">*</span></label>
+          <input type="text" th:field="*{Id}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Name')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Name">Name<span class="required">*</span></label>
+          <input type="text" th:field="*{Name}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Email')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Email">Email<span class="required">*</span></label>
+          <input type="text" th:field="*{Email}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Password')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Password">Password<span class="required">*</span></label>
+          <input type="text" th:field="*{Password}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('JoiningDate')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="JoiningDate">JoiningDate<span class="required">*</span></label>
+          <input type="text" th:field="*{JoiningDate}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('Salary')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="Salary">Salary<span class="required">*</span></label>
+          <input type="text" th:field="*{Salary}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('ManagerId')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="ManagerId">ManagerId<span class="required">*</span></label>
+          <input type="text" th:field="*{ManagerId}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('RoleId')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="RoleId">RoleId<span class="required">*</span></label>
+          <input type="text" th:field="*{RoleId}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+      <div th:class="${#fields.hasErrors('LeaveUsed')} ? 'form-group has-error' : 'form-group'">
+          <label class="control-label" for="LeaveUsed">LeaveUsed<span class="required">*</span></label>
+          <input type="text" th:field="*{LeaveUsed}" required="required">
+      </div>
+    <input type="hidden" th:field="*{Id}">
+ <div class="submit">
+          <button type="submit" name="save" th:text="#{entity.submit}">Create</button>
+        </div>
+</form>
+<div>
+   <footer th:replace=“fragments/template.html :: footer”></footer>
+</div>
+</body>
+
+</html>

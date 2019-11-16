@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/layout}">
+
+   <head th:replace=“fragments/template.html :: header”></head>
+    <body>
+        <div class=“container” >
+            <div class="row">
+                <div class="col">
+                   <div th:replace=“fragments/template.html :: sidebar”></div>
+                </div>
+                <div class="col" layout:fragment="content">
+                   <table>
+                       <th>
+                       <td th:text="${Id}"></td>
+                       <td th:text="${Name}"></td>
+                       <td th:text="${Email}"></td>
+                       <td th:text="${Password}"></td>
+                       <td th:text="${JoiningDate}"></td>
+                       <td th:text="${Salary}"></td>
+                       <td th:text="${ManagerId}"></td>
+                       <td th:text="${RoleId}"></td>
+                       <td th:text="${LeaveUsed}"></td>
+                        <td>Actions</td>
+                       </th>
+                       <tr th:each="model: ${list}">
+                       <td th:text="${model.Id}"></td>
+                       <td th:text="${model.Name}"></td>
+                       <td th:text="${model.Email}"></td>
+                       <td th:text="${model.Password}"></td>
+                       <td th:text="${model.JoiningDate}"></td>
+                       <td th:text="${model.Salary}"></td>
+                       <td th:text="${model.ManagerId}"></td>
+                       <td th:text="${model.RoleId}"></td>
+                       <td th:text="${model.LeaveUsed}"></td>
+                         <td align="center" colspan="3">
+                        <button class="clsActionButton" id="DetailsButton" onclick="DeatilsButton_onclick(model.Id);">Details</button>
+                        <button class="clsActionButton" id="EditButton" onclick="EditButton_onclick(model.Id);">Edit</button>
+                        <button class="clsActionButton" id="CreateButton" onclick="CreateButton_onclick(model.Id);">Create</button>
+                        </td>
+                       </tr>
+                   </table>
+                    <h1>Welcome to the Index page</h1>
+                    <br>This content is replacing the content of the layout:fragment="content"<br>
+                    placeholder in layout.html</p>
+                </div>
+            </div>
+        </div>
+           <div>
+              <footer th:replace=“fragments/template.html :: footer”></footer>
+           </div>
+    </body>
+</html>
